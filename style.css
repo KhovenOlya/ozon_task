@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    background-color: #f7f7f7; 
+}
+
+.progress {
+    width: 568px;
+    height: 320px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #000;
+    box-sizing: border-box;
+}
+
+.progress__title {
+    font-weight: 600;
+    font-size: 16px;
+    align-items: flex-start;
+}
+
+.progress__wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.progress__svg {
+    transform: rotate(-90deg);
+    width: 160px;
+    height: 160px;
+    transition: transform 0.3s ease;
+}
+
+.progress__circle-bg {
+    stroke: #e6ebf1;
+    stroke-width: 12;
+    fill: none;
+}
+
+.progress__circle {
+    stroke: #007bff;
+    stroke-width: 12;
+    fill: none;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.6s ease;
+    transform-origin: center;
+}
+
+.progress__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 150px;
+}
+
+.progress__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.progress__input {
+    width: 26px;
+    padding: 0; 
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 9999px;
+    padding: 4px 6px;
+    font-weight: 500;
+}
+.control-left {
+    width: 80px; 
+    display: flex;
+    justify-content: center; 
+}
+.control-right {
+    flex: 1; 
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #e4e9f0;
+    border-radius: 22px;
+    transition: 0.3s;
+}
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.switch input:checked + .slider {
+    background-color: #007bff;
+}
+.switch input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* Адаптивка */
+@media (max-width: 768px) {
+    .progress {
+        align-items: center;
+    }
+    .progress__wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .progress__controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 24px;
+    }
+    .progress__control {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .progress__input {
+        width: 28px;
+        font-size: 14px;
+    }
+}
