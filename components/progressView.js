@@ -52,7 +52,10 @@ export function renderProgress(root) {
     
     progress.setValue(0)
     input.addEventListener('input', () => {
-        progress.setValue(Number(input.value))
+        let value = Number(input.value);
+        value = Math.min(100, Math.max(0, value)); 
+        input.value = value;
+        progress.setValue(value)
     })
     animateCheckBox.addEventListener('change', () => {
         progress.setAnimate(animateCheckBox.checked)
